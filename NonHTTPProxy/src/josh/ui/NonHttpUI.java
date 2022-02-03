@@ -1453,6 +1453,7 @@ public class NonHttpUI extends JPanel implements ProxyEventListener, DNSTableEve
 		splitPane_2.setRightComponent(scrollPane_3);
 		
 		PythonConsole = new JEditorPane();
+		PythonConsole.putClientProperty("html.disable", null);
 		PythonConsole.setEditable(false);
 		PythonConsole.setContentType("text/html");
 		
