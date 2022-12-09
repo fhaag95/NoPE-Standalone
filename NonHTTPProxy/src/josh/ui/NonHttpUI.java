@@ -5,6 +5,8 @@ package josh.ui;
 
 import javax.swing.JPanel;
 
+import de.fhx.MessageEditor;
+
 import javax.swing.border.LineBorder;
 import java.awt.Color;
 import javax.swing.JLabel;
@@ -825,9 +827,12 @@ public class NonHttpUI extends JPanel implements ProxyEventListener, DNSTableEve
 		
 		
 
-		//Decorate Tabs to match Burp message editor
+		//Decorate Tabs to match Burp message editor	
+		((MessageEditor)ntbm.requestViewer).setReadOnly(true);
 		tabs.addTab("Message", ntbm.requestViewer.getComponent());
-		tabs.addTab("Original", ntbm.originalViewer.getComponent());
+		
+		//fhx -> useless?
+		//tabs.addTab("Original", ntbm.originalViewer.getComponent());
 		
 		
 	
@@ -987,6 +992,7 @@ public class NonHttpUI extends JPanel implements ProxyEventListener, DNSTableEve
 		gbc_repeaterPane.gridy = 1;
 		intbm = new NonHTTPTableModel();
 		intbm.requestViewer = Callbacks.createMessageEditor(intbm,true);
+		((MessageEditor)intbm.requestViewer).setReadOnly(false);
 		
 		//This decorates the intercept tabs to be like brup message tables
 		interceptPane.addTab("Message", intbm.requestViewer.getComponent());
