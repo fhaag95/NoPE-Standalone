@@ -830,11 +830,8 @@ public class NonHttpUI extends JPanel implements ProxyEventListener, DNSTableEve
 		//Decorate Tabs to match Burp message editor	
 		((MessageEditor)ntbm.requestViewer).setReadOnly(true);
 		tabs.addTab("Message", ntbm.requestViewer.getComponent());
-		
-		//fhx -> useless?
-		//tabs.addTab("Original", ntbm.originalViewer.getComponent());
-		
-		
+		((MessageEditor)ntbm.originalViewer).setReadOnly(true);
+		tabs.addTab("Original", ntbm.originalViewer.getComponent());
 	
 		
 		Callbacks.customizeUiComponent(History);
