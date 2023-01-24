@@ -2,9 +2,13 @@ package de.fhx;
 
 import java.awt.BorderLayout;
 import java.awt.Component;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.JLabel;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
+import javax.swing.JPopupMenu;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextArea;
 
@@ -13,6 +17,9 @@ import net.miginfocom.swing.MigLayout;
 
 public class MessageEditor implements IMessageEditor{
 
+	private JPanel view;
+	private JTabbedPane tabPane;
+	private JPopupMenu popup;
 	private RawView rawView = new RawView(this.readOnly);
 	private HexView hexView = new HexView(this.readOnly);
 	private boolean readOnly;
@@ -35,9 +42,9 @@ public class MessageEditor implements IMessageEditor{
 	@Override
 	public Component getComponent() {
 		
-		JPanel view =  new JPanel();
+		view =  new JPanel();
 		view.setLayout(new BorderLayout());
-		JTabbedPane tabPane = new JTabbedPane();		
+		tabPane = new JTabbedPane();		
 		tabPane.add("Raw", rawView);
 		tabPane.add("Hex", hexView);
 		view.add(tabPane);
